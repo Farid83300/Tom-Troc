@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# IDE / Éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# PHP
+vendor/
+composer.lock
+*.cache
+*.log
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Node (si utilisé pour des outils front)
+node_modules/
+package-lock.json
+
+# Thumbs / uploads temporaires
+Thumbs.db
+*.tmp
+*.bak
