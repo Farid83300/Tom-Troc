@@ -10,11 +10,6 @@ Icon?
 # IDE / Éditeurs
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
-*.swp
-*.swo
-*~
 
 # PHP
 vendor/
@@ -26,10 +21,6 @@ composer.lock
 .env
 .env.local
 .env.*.local
-
-# Node (si utilisé pour des outils front)
-node_modules/
-package-lock.json
 
 # Thumbs / uploads temporaires
 Thumbs.db
