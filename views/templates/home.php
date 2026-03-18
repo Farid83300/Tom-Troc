@@ -1,4 +1,4 @@
-<!-- Page d'acceuildu site Tom Troc -->
+<!-- Page d'acceuil du site Tom Troc -->
     <main>
 
     

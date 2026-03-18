@@ -10,7 +10,7 @@
     </head>
     <body>
         <header class="site-header">
-            <img src="assets/logo.svg" class="logo"alt="Logo de Tom Troc">
+            <img src="assets/img/logo/logo.svg" class="logo-header"alt="Logo de Tom Troc">
             <nav class="nav-left">
                 <ul>
                     <li><a href="/home.php" class="active">Accueil</a></li>
@@ -26,10 +26,18 @@
             </nav>
         </header>
         <main>
+            
 
         </main>
-        <footer>
-
+        <footer class="site-footer">
+            <nav class="menu-footer">
+                <ul>
+                    <li><a href="/" class="active">Politique de confidentialité</a></li>
+                    <li><a href="/">Mentions légales</a></li>
+                    <li><a href="/">Tom Troc©</a></li>
+                </ul>
+            </nav>
+            <img src="assets/img/logo/logo-footer.svg" class="logo-footer"alt="Logo de Tom Troc">
         </footer>
     </body>
 </html>
