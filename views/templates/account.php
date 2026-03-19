@@ -1,0 +1,1 @@
+<?php $currentPage = 'account'; ?>

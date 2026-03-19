@@ -1,43 +1,45 @@
+<!--  Templates contenant le Header et le Footer qui s'affiche sur toutes les pages-->
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tom Troc</title>
+        <title><?= $title ?> - Tom Troc</title>
+        <link rel="stylesheet" href="assets/css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <header class="site-header">
-            <img src="assets/img/logo/logo.svg" class="logo-header"alt="Logo de Tom Troc">
+            <img src="assets/img/logo/logo.svg" class="logo-header" alt="Logo de Tom Troc">
             <nav class="nav-left">
-                <ul>
-                    <li><a href="/home.php" class="active">Accueil</a></li>
-                    <li><a href="/views/templates/book.php">Nos livres à l'échange</a></li>
-                </ul>
+                <a href="/home.php" <?= $currentPage === 'home' ? 'class="active"' : '' ?>>Accueil</a>
+                <a href="/views/templates/book.php" <?= $currentPage === 'book' ? 'class="active"' : '' ?>>Nos livres à l'échange</a>
             </nav>
             <nav class="nav-right">
-                <a href="/views/templates/messenger.php" class="active">Messagerie</a>
-                <ul>
-                    <li><a href="/views/templates/account.php">Mon compte</a></li>
-                    <li><a href="/views/templates/login.php">Connexion</a></li>
-                </ul>
+                <a href="/views/templates/messenger.php" <?= $currentPage === 'messenger' ? 'class="active"' : '' ?>>
+                    <img src="assets/img/icons/Icon messagerie.png" alt="" class="icon-nav">
+                    Messagerie
+                    <span class="badge-notif">2</span>
+                </a>
+                <a href="/views/templates/account.php" <?= $currentPage === 'account' ? 'class="active"' : '' ?>>
+                    <img src="assets/img/icons/Icon mon compte.png" alt="" class="icon-nav">
+                    Mon compte
+                </a>
+                <a href="/views/templates/login.php" <?= $currentPage === 'login' ? 'class="active"' : '' ?>>Connexion</a>
             </nav>
         </header>
         <main>
-            
-
+            <?= $content ?>
         </main>
         <footer class="site-footer">
-            <nav class="menu-footer">
-                <ul>
-                    <li><a href="/" class="active">Politique de confidentialité</a></li>
-                    <li><a href="/">Mentions légales</a></li>
-                    <li><a href="/">Tom Troc©</a></li>
-                </ul>
-            </nav>
             <img src="assets/img/logo/logo-footer.svg" class="logo-footer"alt="Logo de Tom Troc">
+            <nav class="menu-footer">
+                <a href="/">Politique de confidentialité</a>
+                <a href="/">Mentions légales</a>
+                <a href="/">Tom Troc©</a>
+            </nav>
         </footer>
     </body>
 </html>

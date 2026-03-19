@@ -1,17 +1,26 @@
 <?php
+declare(strict_types=1);
 
-spl_autoload_register(function ($class) {
-    // Les dossiers où chercher les classes
-    $paths = [
-        __DIR__ . '/../controllers/' . $class . '.php',
-        __DIR__ . '/../models/' . $class . '.php',
-    ];
-
-    // On parcourt chaque chemin possible
-    foreach ($paths as $path) {
-        if (file_exists($path)) {
-            require_once $path;
-            return; // Fichier trouvé, on arrête la recherche
-        }
+/**
+ * Système d'autoload. 
+ * A chaque fois que PHP va avoir besoin d'une classe, il va appeler cette fonction 
+ * et chercher dnas les divers dossiers (ici models, controllers, views, services) s'il trouve 
+ * un fichier avec le bon nom. Si c'est le cas, il l'inclut avec require_once.
+ */
+spl_autoload_register(function($className) {
+    // On va voir dans le dossier Model si la classe existe.
+    if (file_exists('models/' . $className . '.php')) {
+        require_once 'models/' . $className . '.php';
     }
+
+    // On va voir dans le dossier Controller si la classe existe.
+    if (file_exists('controllers/' . $className . '.php')) {
+        require_once 'controllers/' . $className . '.php';
+    }
+
+    // On va voir dans le dossier View si la classe existe.
+    if (file_exists('views/' . $className . '.php')) {
+        require_once 'views/' . $className . '.php';
+    }
+    
 });

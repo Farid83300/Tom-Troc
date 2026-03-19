@@ -1,35 +1,17 @@
 <?php
+declare(strict_types=1);
 
-// Démarre la session pour gérer l'authentification
-// et les messages flash sur toutes les pages.
-session_start();
+    // En fonction des routes utilisées, il est possible d'avoir besoin de la session ; on la démarre dans tous les cas. 
+    session_start();
 
-// Chemins absolus, indépendants du point d'entrée
-define('ROOT_PATH', dirname(__DIR__) . '/');
-define('TEMPLATE_VIEW_PATH', ROOT_PATH . 'views/templates/');
-define('MAIN_VIEW_PATH', ROOT_PATH . 'views/templates/main.php');
+    // Ici on met les constantes utiles, 
+    // les données de connexions à la bdd
+    // et tout ce qui sert à configurer. 
 
-// === PARAMÈTRES DE CONNEXION À LA BDD ===
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'tom-troc');
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
+    define('TEMPLATE_VIEW_PATH', './views/templates/'); // Le chemin vers les templates de vues.
+    define('MAIN_VIEW_PATH', TEMPLATE_VIEW_PATH . 'main.php'); // Le chemin vers le template principal.
 
-// === CONNEXION À LA BDD AVEC PDO ===
-try {
-    $db = new PDO(
-        'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4',
-        DB_USER,
-        DB_PASS,
-        [
-            // Lève des exceptions en cas d'erreur SQL
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]
-    );
-} catch (PDOException $e) {
-
-    die('Erreur de connexion à la base de données : ' . $e->getMessage());
-
-}
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'blog_forteroche');
+    define('DB_USER', 'root');
+    define('DB_PASS', 'root');
