@@ -31,11 +31,36 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    color: var(--title-color);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+    color: var(--title-color);
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: var(--text-light-color);
+}
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -43,13 +68,11 @@ header {
     width: 100%;
     height: 80px;
     padding: 0 150px;
-    /* ajoute cette ligne */
 }
 
 .logo-header {
     width: 155px;
     height: 51px;
-    /* supprime margin-left: 150px */
 }
 
 .nav-left {
@@ -61,7 +84,6 @@ header {
 .nav-right {
     display: flex;
     gap: 50px;
-    /* supprime margin-right: 150px */
 }
 
 .nav-right a {
@@ -102,12 +124,161 @@ header {
     font-weight: 600;
 }
 
+/* CONTENT */
 main {
     flex: 1;
     /* prend tout l'espace restant */
     width: 100%;
 }
 
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 747px;
+    padding: 0 150px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 329px;
+    margin-left: 160px;
+    margin-top: 70px;
+}
+
+.hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.hero-img {
+    width: 404px;
+}
+
+.hero-image p {
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1;
+}
+
+.btn-primary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 152px;
+    margin-top: 30px;
+    padding: 22px 38px;
+    background-color: var(--cta-color);
+    border-radius: 10px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.btn-primary.btn-large {
+    width: 218px;
+    margin-top: 0px;
+}
+
+.hero-image {
+    display: flex;
+    margin-right: 150px;
+}
+
+.last-books-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 702px;
+    padding: 0 150px;
+    background-color: var(--background-light-color);
+}
+
+.book-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.how-does-it-work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 602px;
+    padding: 0 150px;
+}
+
+.how-doing-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.how-doing-over {
+    border: 1px solid transparent;
+}
+
+.how-doing-over:hover {
+    border: 1px solid blue;
+}
+
+.btn-primary.btn-large.btn-transparent {
+    width: 220px;
+    background-color: transparent;
+    border: 1px solid var(--cta-color);
+    color: var(--cta-color);
+}
+
+.about-us-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 602px;
+    margin-bottom: 60px;
+}
+
+.heart-icon {
+    position: absolute;
+    bottom: 20px;
+    right: -70px;
+}
+
+.about-us-section h2 {
+    align-self: flex-start;
+}
+
+.team-signature {
+    align-self: flex-start;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light-color);
+    margin-top: 10px;
+}
+
+/* FOOTER */
 footer {
     display: flex;
     flex-direction: row-reverse;
