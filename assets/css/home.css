@@ -1,0 +1,178 @@
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 747px;
+    padding: 0 150px;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 329px;
+    margin-left: 160px;
+    margin-top: 70px;
+}
+
+.hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 150px;
+}
+
+.hero-img {
+    width: 404px;
+}
+
+.hero-image p {
+    margin-top: 10px;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 1;
+}
+
+/* DERNIERS LIVRES AJOUTÉS */
+.last-books-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    padding: 60px 150px;
+    background-color: var(--background-light-color);
+}
+
+.last-books {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 220px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+}
+
+.book-card-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.book-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 15px 15px 5px;
+    color: var(--title-color);
+}
+
+.book-card .book-author {
+    font-size: 14px;
+    color: var(--text-light-color);
+    margin: 0 15px;
+    margin-top: 5px;
+    ;
+}
+
+.book-card .book-seller {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-light-color);
+    margin: 10px 15px 15px;
+    margin-top: 10px;
+}
+
+/* COMMENT ÇA MARCHE */
+.how-does-it-work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 602px;
+    padding: 0 150px;
+}
+
+.how-does-it-work p {
+    text-align: center;
+}
+
+.how-doing-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.how-doing-over {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.how-doing-over:hover {
+    border: 1px solid blue;
+}
+
+/* NOS VALEURS */
+.about-us-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 602px;
+    margin-bottom: 60px;
+}
+
+.about-us-section h2 {
+    align-self: flex-start;
+}
+
+.heart-icon {
+    position: absolute;
+    bottom: 20px;
+    right: -70px;
+}
+
+.team-signature {
+    align-self: flex-start;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light-color);
+    margin-top: 10px;
+}

@@ -40,6 +40,11 @@ try {
             $controller->showAccount();
             break;
 
+        case 'public-account':
+            $controller = new AccountController();
+            $controller->showPublicAccount();
+            break;
+
         case 'login':
             $controller = new AuthController();
             $controller->showLogin();
