@@ -60,6 +60,11 @@
     flex-direction: column;
     gap: 8px;
     background-color: white;
+    transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
 }
 
 .book-card-image {

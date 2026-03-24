@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 class HomeController
 {
+    // Affiche la page d'accueil avec les derniers livres ajoutés
     public function showHome(): void
     {
         $db = DBManager::getInstance()->getPDO();
