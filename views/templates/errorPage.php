@@ -1,8 +1,5 @@
-<?php
-    /**
-     * Template pour afficher une page d'erreur.
-     */
-?>
+<!-- Page d'erreurdu site Tom Troc -->
+<?php $currentPage = 'errorPage'; ?>
 
 <div class="error">
     <h2>Erreur</h2>

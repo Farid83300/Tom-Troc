@@ -32,6 +32,7 @@
             </nav>
         </header>
         <main>
+            <!-- Contenu des différentes pages -->
             <?= $content ?>
         </main>
         <footer class="site-footer">

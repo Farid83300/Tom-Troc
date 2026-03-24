@@ -9,7 +9,7 @@ class AccountController
         $view->render('account');
     }
 
-        public function showPublicAccount(): void
+    public function showPublicAccount(): void
     {
         $view = new View('Profil public');
         $view->render('public-account');

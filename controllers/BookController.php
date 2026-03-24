@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 class BookController
 {
+    // Affiche la liste de tous les livres disponibles à l'échange
     public function showBooks(): void
     {
         $db= DBManager::getInstance()->getPDO();
@@ -13,15 +14,24 @@ class BookController
         $view->render('books', ['books' => $books]);
     }
 
+    // Affiche les détails d'un livre spécifique en fonction de son ID
     public function showSingleBook(): void
     {
-        $view = new View('Détail du livre');
-        $view->render('single-book');
-    }
+        $id = (int) ($_GET['id'] ?? 0);
 
+        $db = DBManager::getInstance()->getPDO();
+        $bookManager = new BookManager($db);
+        $book = $bookManager->getBookById($id);
+
+        $view = new View($book['title']);
+        $view->render('single-book', ['book' => $book]);
+    }
+    
+    // Affiche le formulaire d'édition d'un livre (fonctionnalité à implémenter)
     public function editBook(): void
     {
         $view = new View('Éditer un livre');
         $view->render('edit-book');
     }
+    
 }
