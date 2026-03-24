@@ -13,7 +13,9 @@
     </head>
     <body>
         <header class="site-header">
-            <img src="assets/img/logo/logo.svg" class="logo-header" alt="Logo de Tom Troc">
+            <a href="index.php?action=home">
+                <img src="assets/img/logo/logo.svg" class="logo-header" alt="Logo de Tom Troc">
+            </a>
             <nav class="nav-left">
                 <a href="index.php?action=home" <?= $currentPage === 'home' ? 'class="active"' : '' ?>>Accueil</a>
                 <a href="index.php?action=books" <?= $currentPage === 'books' ? 'class="active"' : '' ?>>Nos livres à l'échange</a>
