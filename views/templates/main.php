@@ -30,7 +30,11 @@
                     <img src="assets/img/icons/Icon mon compte.png" alt="" class="icon-nav">
                     Mon compte
                 </a>
-                <a href="index.php?action=login" <?= $currentPage === 'login' ? 'class="active"' : '' ?>>Connexion</a>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <a href="index.php?action=logout">Déconnexion</a>
+                <?php else : ?>
+                    <a href="index.php?action=login" <?= $currentPage === 'login' ? 'class="active"' : '' ?>>Connexion</a>
+                <?php endif; ?>
             </nav>
         </header>
         <main>
@@ -45,5 +49,6 @@
                 <a href="/">Tom Troc©</a>
             </nav>
         </footer>
+        <script src="assets/js/script.js"></script>
     </body>
 </html>

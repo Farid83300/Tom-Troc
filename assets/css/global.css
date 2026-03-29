@@ -16,7 +16,7 @@
 }
 
 html {
-    background-color: white;
+    background-color: var(--background-color);
 }
 
 body {
@@ -27,8 +27,8 @@ body {
     max-width: 1440px;
     margin: 0 auto;
     background-color: var(--background-color);
-    border: 1px solid black;
     font-family: 'Inter', sans-serif;
+    border: #000000 1px solid;
 }
 
 h1 {
@@ -153,10 +153,24 @@ header {
     font-weight: 600;
 }
 
-/* CONTENT */
+/* MAIN */
 main {
     flex: 1;
     width: 100%;
+    height: auto;
+}
+
+/* FLASH MESSAGES */
+.flash-error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.flash-success {
+    color: var(--cta-color);
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 /* FOOTER */

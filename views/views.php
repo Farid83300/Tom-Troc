@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 class View
 {
+    //
     private string $title;
-
+    // Le nom de la page courante, utilisé pour le menu actif et le CSS spécifique
     public function __construct(string $title)
     {
         $this->title = $title;

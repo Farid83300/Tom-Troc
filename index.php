@@ -47,17 +47,30 @@ try {
 
         case 'login':
             $controller = new AuthController();
-            $controller->showLogin();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->login();
+            } else {
+                $controller->showLogin();
+            }
             break;
 
         case 'registration':
             $controller = new AuthController();
-            $controller->showRegistration();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->register();
+            } else {
+                $controller->showRegistration();
+            }
             break;
 
         case 'messenger':
             $controller = new MessengerController();
             $controller->showMessenger();
+            break;
+
+        case 'logout':
+            $controller = new AuthController();
+            $controller->logout();
             break;
 
         default:

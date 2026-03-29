@@ -1,0 +1,94 @@
+/* PAGE CONNEXION */
+.login-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* PARTIE GAUCHE : FORMULAIRE */
+.login-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 60px 0 60px 150px;
+}
+
+.login-content h2 {
+    margin-bottom: 40px;
+}
+
+/* FORMULAIRE */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-form .form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light-color);
+}
+
+.login-form .form-group input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: white;
+    outline: none;
+}
+
+.login-form .form-group input:focus {
+    border-color: var(--cta-color);
+}
+
+/* BOUTON SE CONNECTER */
+.login-form button {
+    width: 100%;
+    max-width: 350px;
+    padding: 18px;
+    margin-top: 10px;
+    background-color: var(--cta-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* LIEN INSCRIPTION */
+.login-content>p {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.login-content>p a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* PARTIE DROITE : IMAGE */
+.login-separator {
+    width: 720px;
+    height: 886px;
+}
+
+.login-image {
+    width: 720px;
+    height: 886px;
+}

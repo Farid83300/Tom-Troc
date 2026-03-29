@@ -1,0 +1,94 @@
+/* PAGE INSCRIPTION */
+.registration-section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+/* PARTIE GAUCHE : FORMULAIRE */
+.registration-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 60px 0 60px 150px;
+}
+
+.registration-content h2 {
+    margin-bottom: 40px;
+}
+
+/* FORMULAIRE */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light-color);
+}
+
+.form-group input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: white;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--cta-color);
+}
+
+/* BOUTON S'INSCRIRE */
+.registration-form button {
+    width: 100%;
+    max-width: 350px;
+    padding: 18px;
+    margin-top: 10px;
+    background-color: var(--cta-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* LIEN CONNEXION */
+.registration-content>p {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.registration-content>p a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* PARTIE DROITE : IMAGE */
+.registration-separator {
+    width: 720px;
+    height: 886px;
+}
+
+.registration-image {
+    width: 720px;
+    height: 886px;
+}

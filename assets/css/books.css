@@ -1,5 +1,6 @@
 /* PAGE LIVRES */
 .books-page {
+    max-width: 1440px;
     width: 100%;
     padding: 130px 150px;
     background-color: var(--background-light-color);
