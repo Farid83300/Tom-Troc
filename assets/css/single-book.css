@@ -18,6 +18,8 @@
 .single-book-section {
     display: flex;
     flex-direction: row;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 0 0 80px;
 }
 

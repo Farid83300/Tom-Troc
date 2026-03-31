@@ -7,7 +7,7 @@
         <form class="search-bar" method="get" action="index.php">
             <input type="hidden" name="action" value="books">
             <span class="search-icon">&#128269;</span>
-            <input type="text" name="search" placeholder="Rechercher un livre">
+            <input type="text" name="search" placeholder="Rechercher un livre" value="<?= htmlspecialchars($search) ?>">
         </form>
     </div>
 

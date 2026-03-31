@@ -56,4 +56,19 @@ class BookManager
 
         return $book;
     }
+
+    // Recherche des livres par titre
+    public function searchBooks(string $search): array
+    {
+        $stmt = $this->db->prepare(
+            'SELECT book.*, user.pseudo 
+            FROM book 
+            LEFT JOIN user ON book.user_id = user.id
+            WHERE book.title LIKE :search
+            ORDER BY book.created_at DESC'
+        );
+        $stmt->bindValue(':search', '%' . $search . '%');
+        $stmt->execute();
+        return $stmt->fetchAll();
+}
 }

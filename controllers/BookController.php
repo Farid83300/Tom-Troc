@@ -3,15 +3,25 @@ declare(strict_types=1);
 
 class BookController
 {
-    // Affiche la liste de tous les livres disponibles à l'échange
+    // Affiche la liste de tous les livres disponibles sur le site, avec une option de recherche par titre
     public function showBooks(): void
     {
-        $db= DBManager::getInstance()->getPDO();
+        $db = DBManager::getInstance()->getPDO();
         $bookManager = new BookManager($db);
-        $books = $bookManager->getAllBooks();
+
+        $search = trim($_GET['search'] ?? '');
+
+        if ($search !== '') {
+            $books = $bookManager->searchBooks($search);
+        } else {
+            $books = $bookManager->getAllBooks();
+        }
 
         $view = new View('Nos livres à l\'échange');
-        $view->render('books', ['books' => $books]);
+        $view->render('books', [
+            'books' => $books,
+            'search' => $search,
+        ]);
     }
 
     // Affiche les détails d'un livre spécifique en fonction de son ID
