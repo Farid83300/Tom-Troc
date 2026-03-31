@@ -21,30 +21,29 @@
             </div>
         </div>
         <form action="index.php?action=edit-book&id=<?= $book['id'] ?>" method="post" enctype="multipart/form-data" class="edit-book-form">
-            <div class="edit-book-content">
-                <div class="edit-book-right">
-                    <div class="edit-form-group">
-                        <label for="title">Titre</label>
-                        <input type="text" id="title" name="title" value="<?= htmlspecialchars($book['title']) ?>">
-                    </div>
-                    <div class="edit-form-group">
-                        <label for="author">Auteur</label>
-                        <input type="text" id="author" name="author" value="<?= htmlspecialchars($book['author']) ?>">
-                    </div>
-                    <div class="edit-form-group">
-                        <label for="description">Commentaire</label>
-                        <textarea id="description" name="description" rows="10"><?= htmlspecialchars($book['description']) ?></textarea>
-                    </div>
-                    <div class="edit-form-group">
-                        <label for="availability">Disponibilité</label>
-                        <select id="availability" name="availability">
-                            <option value="1" <?= $book['availability'] == 1 ? 'selected' : '' ?>>disponible</option>
-                            <option value="0" <?= $book['availability'] == 0 ? 'selected' : '' ?>>non disponible</option>
-                        </select>
-                    </div>
+            <div class="edit-book-right">
+                <div class="edit-form-group">
+                    <label for="title">Titre</label>
+                    <input type="text" id="title" name="title" value="<?= htmlspecialchars($book['title']) ?>">
                 </div>
+                <div class="edit-form-group">
+                    <label for="author">Auteur</label>
+                    <input type="text" id="author" name="author" value="<?= htmlspecialchars($book['author']) ?>">
+                </div>
+                <div class="edit-form-group">
+                    <label for="description">Commentaire</label>
+                    <textarea id="description" name="description" rows="10"><?= htmlspecialchars($book['description']) ?></textarea>
+                </div>
+                <div class="edit-form-group">
+                    <label for="availability">Disponibilité</label>
+                    <select id="availability" name="availability">
+                        <option value="1" <?= $book['availability'] == 1 ? 'selected' : '' ?>>disponible</option>
+                        <option value="0" <?= $book['availability'] == 0 ? 'selected' : '' ?>>non disponible</option>
+                    </select>
+                </div>
+                <button type="submit" class="edit-btn-submit">Valider</button>
             </div>
-            <button type="submit" class="edit-btn-submit">Valider</button>
+            
         </form>
     </section>
 </div>

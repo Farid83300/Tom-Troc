@@ -14,7 +14,7 @@
     text-decoration: underline;
 }
 
-h2 {
+.edit-book-page h2 {
     padding: 20px clamp(30px, 8vw, 150px);
 }
 
@@ -42,24 +42,14 @@ h2 {
     width: 100%;
 }
 
-/* CONTENEUR PRINCIPAL : IMAGE + CHAMPS */
-.edit-book-content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    background-color: transparent;
-    border-radius: 0;
-    gap: 0;
-    padding: 0;
-}
-
 /* PARTIE GAUCHE : IMAGE */
 .edit-book-left {
-    flex-shrink: 0;
-    width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-start;
+    padding: 20px clamp(30px, 8vw, 150px) 30px 80px;
+    flex: 1;
+    gap: 20px;
 }
 
 .edit-book-left .edit-label {
@@ -86,7 +76,8 @@ h2 {
 }
 
 .edit-photo-link {
-    align-self: flex-end; /* magie ✨ */
+    align-self: flex-end;
+    /* magie ✨ */
     margin-top: 10px;
 
     font-size: 12px;
@@ -96,7 +87,8 @@ h2 {
 }
 
 .edit-book-image-wrapper {
-    width: 488px; /* même largeur que ton image */
+    width: 488px;
+    /* même largeur que ton image */
     display: flex;
     flex-direction: column;
 }
@@ -106,7 +98,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 60px clamp(30px, 8vw, 150px) 60px 80px;
+    padding: 60px clamp(30px, 8vw, 150px) 30px 80px;
     flex: 1;
     gap: 20px;
 }
@@ -124,6 +116,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-top: 20px;
 }
 
 .edit-form-group label {
@@ -162,7 +155,7 @@ h2 {
 /* BOUTON VALIDER */
 .edit-btn-submit {
     width: 322px;
-    margin-top: auto;
+    margin-top: 20px;
     padding: 22px;
     background-color: var(--cta-color);
     color: white;
@@ -172,6 +165,4 @@ h2 {
     font-weight: 400;
     font-size: 16px;
     cursor: pointer;
-    align-self: stretch;
-    margin-left: 80px;
 }
