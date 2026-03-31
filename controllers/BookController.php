@@ -38,10 +38,38 @@ class BookController
     }
     
     // Affiche le formulaire d'édition d'un livre (fonctionnalité à implémenter)
-    public function editBook(): void
+    public function showEditBook(): void
     {
+        $id = (int) ($_GET['id'] ?? 0);
+
+        $db = DBManager::getInstance()->getPDO();
+        $bookManager = new BookManager($db);
+        $book = $bookManager->getBookById($id);
+
         $view = new View('Éditer un livre');
-        $view->render('edit-book');
+        $view->render('edit-book', ['book' => $book]);
+    }
+
+    // Traite la soumission du formulaire d'édition d'un livre (fonctionnalité à implémenter)
+    public function updateBook(): void
+    {
+        $id = (int) ($_GET['id'] ?? 0);
+
+        $title = trim($_POST['title'] ?? '');
+        $author = trim($_POST['author'] ?? '');
+        $description = trim($_POST['description'] ?? '');
+        $availability = (int) ($_POST['availability'] ?? 0);
+
+        $db = DBManager::getInstance()->getPDO();
+        $bookManager = new BookManager($db);
+
+        $book = $bookManager->getBookById($id);
+        $photo = $book['photo']; // on garde l’ancienne photo par défaut
+
+        $bookManager->updateBook($id, $title, $author, $description, $availability, $photo);
+
+        header('Location: index.php?action=single-book&id=' . $id);
+        exit;
     }
     
 }

@@ -32,7 +32,11 @@ try {
 
         case 'edit-book':
             $controller = new BookController();
-            $controller->showEditBook();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->updateBook();
+            } else {
+                $controller->showEditBook();
+            }
             break;
 
         case 'account':

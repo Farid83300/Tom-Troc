@@ -70,5 +70,24 @@ class BookManager
         $stmt->bindValue(':search', '%' . $search . '%');
         $stmt->execute();
         return $stmt->fetchAll();
-}
+    }
+
+    // Met à jour les informations d'un livre spécifique en fonction de son ID
+    public function updateBook(int $id, string $title, string $author, string $description, int $availability, string $photo): void
+    {
+        $stmt = $this->db->prepare(
+            'UPDATE book 
+            SET title = :title, author = :author, description = :description, 
+                availability = :availability, photo = :photo
+            WHERE id = :id'
+        );
+        $stmt->execute([
+            ':id' => $id,
+            ':title' => $title,
+            ':author' => $author,
+            ':description' => $description,
+            ':availability' => $availability,
+            ':photo' => $photo,
+        ]);
+    }
 }
