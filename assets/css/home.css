@@ -3,19 +3,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1440px;
+    justify-content: center;
+    gap: clamp(40px, 6vw, 120px);
     width: 100%;
     height: 747px;
-    padding: 0 150px;
+    padding: 0 clamp(30px, 8vw, 150px);
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 329px;
-    margin-left: 160px;
+    max-width: 400px;
     margin-top: 70px;
 }
 
@@ -23,7 +22,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-right: 150px;
 }
 
 .hero-img {
@@ -143,6 +141,14 @@
 
 .how-doing-over:hover {
     border: 1px solid blue;
+}
+
+/* IMAGE SÉPARATION */
+.separator-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* NOS VALEURS */

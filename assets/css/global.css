@@ -24,11 +24,10 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
     background-color: var(--background-color);
     font-family: 'Inter', sans-serif;
-    border: #000000 1px solid;
 }
 
 h1 {
@@ -96,7 +95,7 @@ header {
     align-items: center;
     width: 100%;
     height: 80px;
-    padding: 0 150px;
+    padding: 0 clamp(30px, 8vw, 150px);
 }
 
 .logo-header {
@@ -107,7 +106,8 @@ header {
 .nav-left {
     display: flex;
     gap: 50px;
-    margin-right: 170px;
+    margin-left: 50px;
+    margin-right: auto;
 }
 
 .nav-right {
@@ -187,7 +187,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 50px;
-    margin-right: 40px;
+    margin-right: clamp(20px, 4vw, 68px);
 }
 
 .menu-footer a {

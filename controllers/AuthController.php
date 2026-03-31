@@ -53,6 +53,7 @@ class AuthController
     // Traite la soumission du formulaire d'inscription
     public function register(): void
     {
+        // Récupération et validation des données du formulaire
         $pseudo = trim($_POST['username'] ?? '');
         $email = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';
@@ -65,7 +66,7 @@ class AuthController
         // Vérification de l'unicité de l'email et du pseudo
         $db = DBManager::getInstance()->getPDO();
         $userManager = new UserManager($db);
-
+        // Vérification de l'unicité de l'email
         if ($userManager->emailExists($email)) {
             $_SESSION['error'] = 'Cet email est déjà utilisé.';
             header('Location: index.php?action=registration');
