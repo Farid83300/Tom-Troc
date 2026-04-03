@@ -1,0 +1,252 @@
+/* PAGE MON COMPTE */
+.account-section {
+    padding: 40px 150px 80px;
+}
+
+.account-section>h1 {
+    margin-bottom: 30px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* PARTIE HAUTE : PROFIL + INFOS */
+.account-top {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 0 auto 40px;
+    max-width: 1440px;
+}
+
+/* PROFIL GAUCHE */
+.account-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 40px;
+    background-color: var(--background-light-color);
+    border-radius: 8px;
+}
+
+.account-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.account-avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.account-avatar-edit {
+    font-size: 12px;
+    color: var(--text-light-color);
+    text-decoration: underline;
+}
+
+.account-profile hr {
+    width: 242px;
+    border: none;
+    border-top: 1px solid #E0E0E0;
+    margin: 30px 0;
+}
+
+.account-pseudo {
+    font-family: 'Playfair Display';
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--title-color);
+}
+
+.account-member {
+    font-size: 12px;
+    color: var(--text-light-color);
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+.account-library-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 8px;
+    font-style: semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--title-color);
+    margin-bottom: 5px;
+}
+
+.icon-library {
+    width: 10.41px;
+    height: 13.71px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.account-library-count {
+    font-size: 13px;
+    color: var(--text-color);
+    margin-top: 6px;
+}
+
+/* INFOS DROITE */
+.account-info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 40px;
+    background-color: var(--background-light-color);
+    border-radius: 8px;
+}
+
+.account-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--title-color);
+    margin-bottom: 25px;
+}
+
+/* FORMULAIRE INFOS */
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.account-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-form-group label {
+    font-size: 12px;
+    color: var(--text-light-color);
+}
+
+.account-form-group input {
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    outline: none;
+}
+
+.account-btn-submit {
+    width: fit-content;
+    padding: 15px 35px;
+    margin-top: 10px;
+    background-color: transparent;
+    color: var(--cta-color);
+    border: 1px solid var(--cta-color);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* TABLEAU DES LIVRES */
+.account-books {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: var(--background-light-color);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.account-table thead th {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--title-color);
+    text-align: left;
+    padding: 15px 10px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.account-table tbody tr {
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.account-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.account-table tbody td {
+    padding: 15px 10px;
+    font-size: 13px;
+    color: var(--text-color);
+    vertical-align: middle;
+}
+
+.account-book-thumb {
+    width: 70px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.account-book-desc {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--text-light-color);
+    max-width: 200px;
+}
+
+/* BADGES DISPONIBILITÉ */
+.badge-available {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: var(--cta-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge-unavailable {
+    display: inline-block;
+    padding: 5px 12px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ACTIONS */
+.account-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.account-actions a {
+    font-size: 12px;
+    text-decoration: underline;
+    color: var(--text-color);
+}
+
+.account-actions .action-delete {
+    color: #e74c3c;
+}

@@ -90,4 +90,24 @@ class BookManager
             ':photo' => $photo,
         ]);
     }
+
+    // Récupère tous les livres d'un utilisateur spécifique en fonction de son ID
+    public function getBooksByUserId(int $userId): array
+    {
+        $stmt = $this->db->prepare(
+            'SELECT * FROM book WHERE user_id = :userId ORDER BY created_at DESC'
+        );
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+    
+    // Compte le nombre de livres d'un utilisateur spécifique en fonction de son ID
+    public function countBooksByUserId(int $userId): int
+    {
+        $stmt = $this->db->prepare('SELECT COUNT(*) FROM book WHERE user_id = :userId');
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return (int) $stmt->fetchColumn();
+    }
 }

@@ -37,39 +37,60 @@ class BookController
         $view->render('single-book', ['book' => $book]);
     }
     
-    // Affiche le formulaire d'édition d'un livre (fonctionnalité à implémenter)
     public function showEditBook(): void
     {
         $id = (int) ($_GET['id'] ?? 0);
+
+        // Vérifie que l'utilisateur est connecté
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=login');
+            exit;
+        }
 
         $db = DBManager::getInstance()->getPDO();
         $bookManager = new BookManager($db);
         $book = $bookManager->getBookById($id);
 
+        // Vérifie que le livre appartient à l'utilisateur connecté
+        if ($book['user_id'] !== $_SESSION['user']['id']) {
+            header('Location: index.php?action=single-book&id=' . $id);
+            exit;
+        }
+
         $view = new View('Éditer un livre');
         $view->render('edit-book', ['book' => $book]);
     }
 
-    // Traite la soumission du formulaire d'édition d'un livre (fonctionnalité à implémenter)
     public function updateBook(): void
     {
         $id = (int) ($_GET['id'] ?? 0);
+
+        // Vérifie que l'utilisateur est connecté
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=login');
+            exit;
+        }
+
+        $db = DBManager::getInstance()->getPDO();
+        $bookManager = new BookManager($db);
+        $book = $bookManager->getBookById($id);
+
+        // Vérifie que le livre appartient à l'utilisateur connecté
+        if ($book['user_id'] !== $_SESSION['user']['id']) {
+            header('Location: index.php?action=single-book&id=' . $id);
+            exit;
+        }
 
         $title = trim($_POST['title'] ?? '');
         $author = trim($_POST['author'] ?? '');
         $description = trim($_POST['description'] ?? '');
         $availability = (int) ($_POST['availability'] ?? 0);
 
-        $db = DBManager::getInstance()->getPDO();
-        $bookManager = new BookManager($db);
-
-        $book = $bookManager->getBookById($id);
-        $photo = $book['photo']; // on garde l’ancienne photo par défaut
+        $photo = $book['photo'];
 
         $bookManager->updateBook($id, $title, $author, $description, $availability, $photo);
 
         header('Location: index.php?action=single-book&id=' . $id);
         exit;
     }
-    
 }

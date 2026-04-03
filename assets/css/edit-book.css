@@ -1,6 +1,13 @@
 /* BREADCRUMB RETOUR */
+
+.edit-book-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 .edit-breadcrumb {
-    padding: 20px clamp(30px, 8vw, 150px);
+    padding: 20px 0;
     font-size: 12px;
     color: var(--text-light-color);
 }
@@ -14,8 +21,8 @@
     text-decoration: underline;
 }
 
-.edit-book-page h2 {
-    padding: 20px clamp(30px, 8vw, 150px);
+.edit-book-page h1 {
+    padding: 0 0 20px;
 }
 
 .edit-book-page {
@@ -23,6 +30,7 @@
     min-height: calc(100vh - 80px - 61px);
     padding-bottom: 40px;
 }
+
 
 /* SECTION ÉDITION */
 .edit-book-section {

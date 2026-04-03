@@ -77,6 +77,11 @@ try {
             $controller->logout();
             break;
 
+        case 'update-avatar':
+            $controller = new AccountController();
+            $controller->updateAvatar();
+            break;
+
         default:
             throw new Exception("La page demandée n'existe pas.");
     }

@@ -21,7 +21,7 @@ class UserManager
             ':pseudo' => $pseudo,
             ':email' => $email,
             ':password' => password_hash($password, PASSWORD_DEFAULT),
-            ':profile_picture' => 'assets/img/avatar/default-avatar.png',
+            ':profile_picture' => 'assets/img/avatar/defaut-avatar.png',
         ]);
     }
 
@@ -51,5 +51,14 @@ class UserManager
         $stmt->bindValue(':pseudo', $pseudo);
         $stmt->execute();
         return (int) $stmt->fetchColumn() > 0;
+    }
+
+    public function updateProfilePicture(int $userId, string $path): void
+    {
+        $stmt = $this->db->prepare('UPDATE user SET profile_picture = :path WHERE id = :id');
+        $stmt->execute([
+            ':path' => $path,
+            ':id' => $userId,
+        ]);
     }
 }
