@@ -52,7 +52,7 @@ class UserManager
         $stmt->execute();
         return (int) $stmt->fetchColumn() > 0;
     }
-
+    // Met à jour la photo de profil d'un utilisateur
     public function updateProfilePicture(int $userId, string $path): void
     {
         $stmt = $this->db->prepare('UPDATE user SET profile_picture = :path WHERE id = :id');
@@ -60,5 +60,14 @@ class UserManager
             ':path' => $path,
             ':id' => $userId,
         ]);
+    }
+
+    public function getUserById(int $id): ?array
+    {
+        $stmt = $this->db->prepare('SELECT * FROM user WHERE id = :id');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $user = $stmt->fetch();
+        return $user ?: null;
     }
 }

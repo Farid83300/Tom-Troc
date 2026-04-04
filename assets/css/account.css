@@ -50,6 +50,10 @@
     text-decoration: underline;
 }
 
+.account-avatar-edit:hover {
+    cursor: pointer;
+}
+
 .account-profile hr {
     width: 242px;
     border: none;
@@ -75,7 +79,6 @@
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 8px;
-    font-style: semibold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--title-color);
@@ -165,7 +168,6 @@
     margin: 0 auto;
     background-color: var(--background-light-color);
     border-radius: 8px;
-    padding: 20px;
 }
 
 .account-table {
@@ -187,6 +189,14 @@
 
 .account-table tbody tr {
     border-bottom: 1px solid #E0E0E0;
+}
+
+.account-table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+.account-table tbody tr:nth-child(even) {
+    background-color: #EDF2F6;
 }
 
 .account-table tbody tr:last-child {
