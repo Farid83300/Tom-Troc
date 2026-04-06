@@ -16,26 +16,37 @@
             <a href="index.php?action=home">
                 <img src="assets/img/logo/logo.svg" class="logo-header" alt="Logo de Tom Troc">
             </a>
-            <nav class="nav-left">
-                <a href="index.php?action=home" <?= $currentPage === 'home' ? 'class="active"' : '' ?>>Accueil</a>
-                <a href="index.php?action=books" <?= $currentPage === 'books' ? 'class="active"' : '' ?>>Nos livres à l'échange</a>
-            </nav>
-            <nav class="nav-right">
-                <a href="index.php?action=messenger" <?= $currentPage === 'messenger' ? 'class="active"' : '' ?>>
-                    <img src="assets/img/icons/Icon messagerie.png" alt="" class="icon-nav">
-                    Messagerie
-                    <span class="badge-notif">2</span>
-                </a>
-                <a href="index.php?action=account" <?= $currentPage === 'account' ? 'class="active"' : '' ?>>
-                    <img src="assets/img/icons/Icon mon compte.png" alt="" class="icon-nav">
-                    Mon compte
-                </a>
-                <?php if (isset($_SESSION['user'])) : ?>
-                    <a href="index.php?action=logout">Déconnexion</a>
-                <?php else : ?>
-                    <a href="index.php?action=login" <?= $currentPage === 'login' ? 'class="active"' : '' ?>>Connexion</a>
-                <?php endif; ?>
-            </nav>
+            <!-- Burger menu button -->
+            <button class="burger-menu" id="burger-menu" aria-label="Ouvrir le menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <!-- Overlay -->
+            <div class="nav-overlay" id="nav-overlay"></div>
+            <!-- Navigation -->
+            <div class="nav-wrapper" id="nav-wrapper">
+                <nav class="nav-left">
+                    <a href="index.php?action=home" <?= $currentPage === 'home' ? 'class="active"' : '' ?>>Accueil</a>
+                    <a href="index.php?action=books" <?= $currentPage === 'books' ? 'class="active"' : '' ?>>Nos livres à l'échange</a>
+                </nav>
+                <nav class="nav-right">
+                    <a href="index.php?action=messenger" <?= $currentPage === 'messenger' ? 'class="active"' : '' ?>>
+                        <img src="assets/img/icons/Icon messagerie.png" alt="" class="icon-nav">
+                        Messagerie
+                        <span class="badge-notif">2</span>
+                    </a>
+                    <a href="index.php?action=account" <?= $currentPage === 'account' ? 'class="active"' : '' ?>>
+                        <img src="assets/img/icons/Icon mon compte.png" alt="" class="icon-nav">
+                        Mon compte
+                    </a>
+                    <?php if (isset($_SESSION['user'])) : ?>
+                        <a href="index.php?action=logout">Déconnexion</a>
+                    <?php else : ?>
+                        <a href="index.php?action=login" <?= $currentPage === 'login' ? 'class="active"' : '' ?>>Connexion</a>
+                    <?php endif; ?>
+                </nav>
+            </div>
         </header>
         <main>
             <!-- Contenu des différentes pages -->

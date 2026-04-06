@@ -149,3 +149,90 @@
     color: var(--text-light-color);
     max-width: 200px;
 }
+
+/* RESPONSIVE - TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    .public-account-section {
+        padding: 40px 30px 60px;
+    }
+
+    .public-account-top {
+        flex-direction: column;
+    }
+
+    .public-account-profile {
+        width: 100%;
+    }
+
+    .public-account-books {
+        width: 100%;
+    }
+}
+
+/* RESPONSIVE - MOBILE (max 768px) */
+@media (max-width: 768px) {
+    .public-account-section {
+        padding: 20px 15px 40px;
+    }
+
+    .public-account-profile {
+        padding: 30px 20px;
+    }
+
+    .public-account-profile hr {
+        margin: 30px 0;
+    }
+
+    .public-account-btn {
+        max-width: 100%;
+    }
+
+    /* Transform table to card layout */
+    .public-account-table thead {
+        display: none;
+    }
+
+    .public-account-table,
+    .public-account-table tbody,
+    .public-account-table tr,
+    .public-account-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .public-account-table tbody tr {
+        padding: 20px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border-bottom: none;
+        background-color: white;
+    }
+
+    .public-account-table tbody tr:nth-child(even) {
+        background-color: white;
+    }
+
+    .public-account-books {
+        flex-direction: column;
+        gap: 10px;
+        background-color: transparent;
+    }
+
+    .public-book-thumb {
+        width: 80px;
+        height: 90px;
+        float: left;
+        margin-right: 15px;
+        margin-bottom: 10px;
+    }
+
+    .public-account-table tbody td {
+        padding: 3px 0;
+        font-size: 14px;
+    }
+
+    .public-book-desc {
+        max-width: 100%;
+        clear: both;
+    }
+}

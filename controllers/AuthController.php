@@ -39,7 +39,7 @@ class AuthController
             'profile_picture' => $user['profile_picture'],
         ];
         // Redirection vers la page d'accueil
-        header('Location: index.php?action=home');
+        header('Location: index.php?action=account');
         exit;
     }
 

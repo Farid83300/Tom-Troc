@@ -101,3 +101,45 @@
     color: var(--text-light-color);
     margin-top: 20px;
 }
+
+/* RESPONSIVE - TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    .books-page {
+        padding: 80px 30px;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(3, 200px);
+        gap: 30px;
+    }
+}
+
+/* RESPONSIVE - MOBILE (max 768px) */
+@media (max-width: 768px) {
+    .books-page {
+        padding: 40px 20px;
+    }
+
+    .books-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input[type="text"] {
+        width: 100%;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .book-card {
+        width: 100%;
+    }
+}

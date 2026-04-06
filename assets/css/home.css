@@ -183,3 +183,116 @@
     color: var(--text-light-color);
     margin-top: 10px;
 }
+
+/* RESPONSIVE - TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    .hero-section {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 40px clamp(20px, 5vw, 80px);
+        gap: 30px;
+    }
+
+    .hero-content {
+        margin-top: 0;
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image {
+        align-items: center;
+    }
+
+    .hero-img {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .last-books-section {
+        padding: 60px 30px;
+    }
+
+    .last-books {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .how-does-it-work {
+        height: auto;
+        padding: 60px 30px;
+    }
+
+    .how-doing-card {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .about-us-section {
+        padding: 0 30px;
+        max-width: 100%;
+    }
+
+    .heart-icon {
+        right: 0;
+    }
+}
+
+/* RESPONSIVE - MOBILE (max 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .hero-img {
+        max-width: 280px;
+        border-radius: 8px;
+    }
+
+    .hero-image p {
+        font-size: 11px;
+    }
+
+    .last-books-section {
+        padding: 40px 20px;
+    }
+
+    .last-books {
+        gap: 15px;
+    }
+
+    .book-card {
+        width: 160px;
+    }
+
+    .book-card-image {
+        height: 180px;
+    }
+
+    .how-does-it-work {
+        padding: 40px 20px;
+    }
+
+    .how-doing-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .how-doing-over img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .about-us-section {
+        height: auto;
+        padding: 40px 20px;
+        margin-bottom: 40px;
+    }
+
+    .heart-icon {
+        position: static;
+        margin-top: 20px;
+    }
+}

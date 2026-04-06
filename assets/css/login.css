@@ -93,3 +93,43 @@
     height: 100%;
     object-fit: cover;
 }
+
+/* RESPONSIVE - TABLET (max 1024px) */
+@media (max-width: 1024px) {
+    .login-section {
+        flex-direction: column;
+    }
+
+    .login-content {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .login-separator {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/* RESPONSIVE - MOBILE (max 768px) */
+@media (max-width: 768px) {
+    .login-content {
+        padding: 40px 20px;
+    }
+
+    .login-content h2 {
+        margin-bottom: 30px;
+    }
+
+    .login-form .form-group input {
+        max-width: 100%;
+    }
+
+    .login-form button {
+        max-width: 100%;
+    }
+
+    .login-separator {
+        height: 300px;
+    }
+}
