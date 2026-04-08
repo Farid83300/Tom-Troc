@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class View
@@ -11,13 +12,17 @@ class View
         $this->title = $title;
     }
 
-    /**
-     * Affiche une page dans le template main.php.
-     * @param string $template Le nom du fichier template (sans .php)
-     * @param array $data Les données à passer à la vue
-     */
     public function render(string $template, array $data = []): void
     {
+        // Badge messagerie dynamique — disponible sur toutes les pages
+        if (isset($_SESSION['user'])) {
+            $db = DBManager::getInstance()->getPDO();
+            $messageManager = new MessageManager($db);
+            $data['unreadCount'] = $messageManager->countUnread($_SESSION['user']['id']);
+        } else {
+            $data['unreadCount'] = 0;
+        }
+
         // On rend les données accessibles dans la vue
         extract($data);
 

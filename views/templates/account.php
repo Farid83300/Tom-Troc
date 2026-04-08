@@ -2,7 +2,7 @@
 <?php $currentPage = 'account'; ?>
 
 <section class="account-section">
-    <h1>Mon compte</h1>
+    <h1 class="h1-small">Mon compte</h1>
 
     <div class="account-top">
         <!-- PARTIE GAUCHE : PROFIL -->

@@ -3,7 +3,7 @@
 
 <section class="registration-section">
     <div class="registration-content">
-        <h2>Inscription</h2>
+        <h1>Inscription</h1>
 
         <form action="index.php?action=registration" method="post" class="registration-form">
             <div class="form-group">

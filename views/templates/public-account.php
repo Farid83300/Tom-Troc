@@ -9,14 +9,14 @@
                 <img src="<?= htmlspecialchars($owner['profile_picture']) ?>" alt="<?= htmlspecialchars($owner['pseudo']) ?>">
             </div>
             <hr>
-            <h2 class="public-account-pseudo"><?= htmlspecialchars($owner['pseudo']) ?></h2>
+            <h1 class="public-account-pseudo"><?= htmlspecialchars($owner['pseudo']) ?></h1>
             <p class="public-account-member"><?= htmlspecialchars($memberSince) ?></p>
             <p class="public-account-library-title">Bibliothèque</p>
             <p class="public-account-library-count">
                 <img src="assets/img/icons/Bibliotheque-Vector.svg" alt="" class="icon-library">
                 <?= $bookCount ?> livre<?= $bookCount > 1 ? 's' : '' ?>
             </p>
-            <a href="index.php?action=messenger&user=<?= $owner['id'] ?>" class="public-account-btn">Écrire un message</a>
+            <a href="index.php?action=messenger&with=<?= $owner['id'] ?>" class="public-account-btn">Écrire un message</a>
         </div>
 
         <!-- PARTIE DROITE : LIVRES -->

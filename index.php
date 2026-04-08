@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 /**
  * Point d'entrée unique de l'application.
 */
@@ -70,6 +72,11 @@ try {
         case 'messenger':
             $controller = new MessengerController();
             $controller->showMessenger();
+            break;
+
+        case 'send-message':
+            $controller = new MessengerController();
+            $controller->sendMessage();
             break;
 
         case 'logout':

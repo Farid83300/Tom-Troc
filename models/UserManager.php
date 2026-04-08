@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class UserManager
@@ -61,7 +62,7 @@ class UserManager
             ':id' => $userId,
         ]);
     }
-
+    // Récupère un utilisateur par son ID
     public function getUserById(int $id): ?array
     {
         $stmt = $this->db->prepare('SELECT * FROM user WHERE id = :id');

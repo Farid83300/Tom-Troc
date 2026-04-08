@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -6,7 +7,7 @@ declare(strict_types=1);
  * Cette classe est un singleton. Cela signifie qu'il n'est pas possible de créer plusieurs instances de cette classe.
  * Pour récupérer une instance de cette classe, il faut utiliser la méthode getInstance().
  */
-class DBManager 
+class DBManager
 {
     // Création d'une classe singleton qui permet de se connecter à la base de données.
     // On crée une instance de la classe DBConnect qui permet de se connecter à la base de données.
@@ -20,7 +21,7 @@ class DBManager
      * Ce constructeur est privé. Pour récupérer une instance de la classe, il faut utiliser la méthode getInstance().
      * @see DBManager::getInstance()
      */
-    private function __construct() 
+    private function __construct()
     {
         // On se connecte à la base de données.
         $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
@@ -32,7 +33,7 @@ class DBManager
      * Méthode qui permet de récupérer l'instance de la classe DBManager.
      * @return DBManager
      */
-    public static function getInstance() : DBManager
+    public static function getInstance(): DBManager
     {
         if (!self::$instance) {
             self::$instance = new DBManager();
@@ -44,7 +45,7 @@ class DBManager
      * Méthode qui permet de récupérer l'objet PDO qui permet de se connecter à la base de données.
      * @return PDO
      */
-    public function getPDO() : PDO
+    public function getPDO(): PDO
     {
         return $this->db;
     }
@@ -56,7 +57,7 @@ class DBManager
      * @param array|null $params : les paramètres de la requête SQL.
      * @return PDOStatement : le résultat de la requête SQL.
      */
-    public function query(string $sql, ?array $params = null) : PDOStatement
+    public function query(string $sql, ?array $params = null): PDOStatement
     {
         if ($params == null) {
             $query = $this->db->query($sql);
@@ -66,5 +67,4 @@ class DBManager
         }
         return $query;
     }
-    
 }

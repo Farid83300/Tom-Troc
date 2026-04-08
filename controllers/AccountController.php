@@ -1,19 +1,22 @@
 <?php
+
 declare(strict_types=1);
 
 class AccountController
 {
     public function showAccount(): void
     {
+        // Vérification de la session
         if (!isset($_SESSION['user'])) {
             header('Location: index.php?action=login');
             exit;
         }
-
+        // Récupération des données de l'utilisateur
         $db = DBManager::getInstance()->getPDO();
         $userManager = new UserManager($db);
         $bookManager = new BookManager($db);
 
+        // Récupération de l'utilisateur connecté
         $userId = $_SESSION['user']['id'];
         $user = $userManager->getUserByEmail($_SESSION['user']['email']);
         $books = $bookManager->getBooksByUserId($userId);
@@ -23,7 +26,7 @@ class AccountController
         $createdAt = new DateTime($user['created_at']);
         $now = new DateTime();
         $diff = $createdAt->diff($now);
-
+        // Formatage de l'ancienneté
         if ($diff->y > 0) {
             $memberSince = 'Membre depuis ' . $diff->y . ' an' . ($diff->y > 1 ? 's' : '');
         } elseif ($diff->m > 0) {
@@ -31,7 +34,7 @@ class AccountController
         } else {
             $memberSince = 'Membre depuis ' . $diff->d . ' jour' . ($diff->d > 1 ? 's' : '');
         }
-
+        // Affichage de la vue
         $view = new View('Mon compte');
         $view->render('account', [
             'user' => $user,
@@ -47,13 +50,13 @@ class AccountController
             header('Location: index.php?action=login');
             exit;
         }
-
+        // Vérification de l'upload
         if (!isset($_FILES['avatar']) || $_FILES['avatar']['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['error'] = 'Erreur lors de l\'upload de l\'image.';
             header('Location: index.php?action=account');
             exit;
         }
-
+        // Traitement de l'image
         $file = $_FILES['avatar'];
 
         // Vérification du type d'image
@@ -110,6 +113,7 @@ class AccountController
         $now = new DateTime();
         $diff = $createdAt->diff($now);
 
+        // Formatage de l'ancienneté
         if ($diff->y > 0) {
             $memberSince = 'Membre depuis ' . $diff->y . ' an' . ($diff->y > 1 ? 's' : '');
         } elseif ($diff->m > 0) {
@@ -117,7 +121,7 @@ class AccountController
         } else {
             $memberSince = 'Membre depuis ' . $diff->d . ' jour' . ($diff->d > 1 ? 's' : '');
         }
-
+        // Affichage de la vue
         $view = new View($owner['pseudo']);
         $view->render('public-account', [
             'owner' => $owner,

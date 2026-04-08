@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class BookManager
@@ -36,7 +37,7 @@ class BookManager
         $stmt->execute();
         return $stmt->fetchAll();
     }
-    
+
     // Récupère les détails d'un livre spécifique en fonction de son ID
     public function getBookById(int $id): array
     {
@@ -73,13 +74,19 @@ class BookManager
     }
 
     // Met à jour les informations d'un livre spécifique en fonction de son ID
-    public function updateBook(int $id, string $title, string $author, string $description, int $availability, string $photo): void
-    {
+    public function updateBook(
+        int $id,
+        string $title,
+        string $author,
+        string $description,
+        int $availability,
+        string $photo
+    ): void {
         $stmt = $this->db->prepare(
             'UPDATE book 
-            SET title = :title, author = :author, description = :description, 
-                availability = :availability, photo = :photo
-            WHERE id = :id'
+                SET title = :title, author = :author, description = :description, 
+                    availability = :availability, photo = :photo
+                WHERE id = :id'
         );
         $stmt->execute([
             ':id' => $id,
@@ -101,7 +108,7 @@ class BookManager
         $stmt->execute();
         return $stmt->fetchAll();
     }
-    
+
     // Compte le nombre de livres d'un utilisateur spécifique en fonction de son ID
     public function countBooksByUserId(int $userId): int
     {

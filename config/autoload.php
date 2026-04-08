@@ -1,13 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 /**
- * Système d'autoload. 
- * A chaque fois que PHP va avoir besoin d'une classe, il va appeler cette fonction 
- * et chercher dnas les divers dossiers (ici models, controllers, views) s'il trouve 
+ * Système d'autoload.
+ * A chaque fois que PHP va avoir besoin d'une classe, il va appeler cette fonction
+ * et chercher dans les divers dossiers (ici models, controllers, views) s'il trouve
  * un fichier avec le bon nom. Si c'est le cas, il l'inclut avec require_once.
  */
-spl_autoload_register(function($className) {
+
+spl_autoload_register(function ($className) {
     // On va voir dans le dossier Model si la classe existe.
     if (file_exists('models/' . $className . '.php')) {
         require_once 'models/' . $className . '.php';
@@ -22,5 +24,4 @@ spl_autoload_register(function($className) {
     if (file_exists('views/' . $className . '.php')) {
         require_once 'views/' . $className . '.php';
     }
-    
 });

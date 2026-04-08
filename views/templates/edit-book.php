@@ -6,8 +6,8 @@
         <nav class="edit-breadcrumb">
             <a href="index.php?action=account">&larr; retour</a>
         </nav>
-        <h1>Modifier les informations</h1>
-        <section class="edit-book-section">            
+        <h1 class="h1-small">Modifier les informations</h1>
+        <div class="edit-book-section">            
             <div class="edit-book-left">
                 <label class="edit-label">Photo</label>
                 <div class="edit-book-image-wrapper">
@@ -45,6 +45,6 @@
                 </div>
                 
             </form>
-        </section>
+        </div>
     </div>
 </div>

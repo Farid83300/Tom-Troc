@@ -32,12 +32,14 @@
                 </nav>
                 <nav class="nav-right">
                     <a href="index.php?action=messenger" <?= $currentPage === 'messenger' ? 'class="active"' : '' ?>>
-                        <img src="assets/img/icons/Icon messagerie.png" alt="" class="icon-nav">
+                        <img src="assets/img/icons/icon-messagerie.png" alt="" class="icon-nav">
                         Messagerie
-                        <span class="badge-notif">2</span>
+                        <?php if (isset($_SESSION['user']) && isset($unreadCount) && $unreadCount > 0) : ?>
+                            <span class="badge-notif"><?= $unreadCount ?></span>
+                        <?php endif; ?>
                     </a>
                     <a href="index.php?action=account" <?= $currentPage === 'account' ? 'class="active"' : '' ?>>
-                        <img src="assets/img/icons/Icon mon compte.png" alt="" class="icon-nav">
+                        <img src="assets/img/icons/icon-mon-compte.png" alt="" class="icon-nav">
                         Mon compte
                     </a>
                     <?php if (isset($_SESSION['user'])) : ?>
@@ -49,11 +51,15 @@
             </div>
         </header>
         <main>
-            <!-- Contenu des différentes pages -->
-            <?= $content ?>
+
+
+        <!-- Contenu des différentes pages -->
+        <?= $content ?>
+
+
         </main>
         <footer class="site-footer">
-            <img src="assets/img/logo/logo-footer.svg" class="logo-footer"alt="Logo de Tom Troc">
+            <img src="assets/img/logo/logo-footer.svg" class="logo-footer" alt="Logo de Tom Troc">
             <nav class="menu-footer">
                 <a href="/">Politique de confidentialité</a>
                 <a href="/">Mentions légales</a>

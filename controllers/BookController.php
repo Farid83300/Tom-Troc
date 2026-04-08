@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 class BookController
@@ -27,6 +28,7 @@ class BookController
     // Affiche les détails d'un livre spécifique en fonction de son ID
     public function showSingleBook(): void
     {
+        // Récupère l'ID du livre à afficher
         $id = (int) ($_GET['id'] ?? 0);
 
         $db = DBManager::getInstance()->getPDO();
@@ -39,6 +41,7 @@ class BookController
     
     public function showEditBook(): void
     {
+        // Récupère l'ID du livre à éditer
         $id = (int) ($_GET['id'] ?? 0);
 
         // Vérifie que l'utilisateur est connecté
@@ -63,6 +66,7 @@ class BookController
 
     public function updateBook(): void
     {
+        // Récupère l'ID du livre à éditer
         $id = (int) ($_GET['id'] ?? 0);
 
         // Vérifie que l'utilisateur est connecté
@@ -70,7 +74,7 @@ class BookController
             header('Location: index.php?action=login');
             exit;
         }
-
+        // Récupère le livre en question
         $db = DBManager::getInstance()->getPDO();
         $bookManager = new BookManager($db);
         $book = $bookManager->getBookById($id);
@@ -80,17 +84,18 @@ class BookController
             header('Location: index.php?action=single-book&id=' . $id);
             exit;
         }
-
+        // Récupère les données du formulaire
         $title = trim($_POST['title'] ?? '');
         $author = trim($_POST['author'] ?? '');
         $description = trim($_POST['description'] ?? '');
         $availability = (int) ($_POST['availability'] ?? 0);
 
+        // Si une nouvelle photo est uploadée, on la traite
         $photo = $book['photo'];
-
+        // Vérification de l'upload
         $bookManager->updateBook($id, $title, $author, $description, $availability, $photo);
 
-        header('Location: index.php?action=single-book&id=' . $id);
+        header('Location: index.php?action=account');
         exit;
     }
 }

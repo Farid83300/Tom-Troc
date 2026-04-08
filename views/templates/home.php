@@ -5,7 +5,7 @@
     <div class="hero-content">
         <h1>Rejoignez nos lecteurs passionnés</h1>
         <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.</p>
-        <a href="index.php?action=books"class="btn-primary">Découvrir</a>
+        <a href="index.php?action=books" class="btn-primary">Découvrir</a>
     </div>
     <div class="hero-image">
         <img src="assets/img/hamza-nouasria.png" alt="Image d'accueil de Tom Troc" class="hero-img">

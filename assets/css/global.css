@@ -38,6 +38,14 @@ h1 {
     color: var(--title-color);
 }
 
+.h1-small {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 44px;
+    color: var(--title-color);
+}
+
 h2 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
@@ -247,6 +255,7 @@ footer {
 
 /* RESPONSIVE - TABLET (max 1024px) */
 @media (max-width: 1024px) {
+
     /* BURGER VISIBLE */
     .burger-menu {
         display: flex;

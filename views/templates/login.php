@@ -3,7 +3,7 @@
 
 <section class="login-section">
     <div class="login-content">
-        <h2>Connexion</h2>
+        <h1>Connexion</h1>
         <form action="index.php?action=login" method="post" class="login-form">
             <div class="form-group">
                 <label for="email">Adresse email</label>

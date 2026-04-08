@@ -46,3 +46,9 @@ if (avatarInput) {
         }
     });
 }
+
+// Auto-scroll messagerie
+const container = document.getElementById('messages-container');
+if (container) {
+    container.scrollTop = container.scrollHeight;
+}
