@@ -36,6 +36,12 @@ class MessengerController
         $withUser   = null;
 
         if ($withUserId) {
+            // Empêche de discuter avec soi-même
+            if ($withUserId === $currentUserId) {
+                header('Location: index.php?action=messenger');
+                exit;
+            }
+
             $messages = $this->messageManager->getMessagesBetween($currentUserId, $withUserId);
             $this->messageManager->markAsRead($withUserId, $currentUserId);
             $withUser = $this->userManager->getUserById($withUserId);
@@ -60,6 +66,12 @@ class MessengerController
         $currentUserId = $_SESSION['user']['id'];
         $receiverId    = isset($_POST['receiver_id']) ? (int) $_POST['receiver_id'] : 0;
         $content       = trim($_POST['content'] ?? '');
+
+        // Empêche de s'envoyer un message à soi-même
+        if ($receiverId === $currentUserId) {
+            header('Location: index.php?action=messenger');
+            exit;
+        }
 
         if ($receiverId > 0 && $content !== '') {
             $this->messageManager->sendMessage($currentUserId, $receiverId, $content);

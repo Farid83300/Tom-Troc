@@ -98,6 +98,14 @@ class BookManager
         ]);
     }
 
+    // Supprime un livre en fonction de son ID
+    public function deleteBook(int $id): void
+    {
+        $stmt = $this->db->prepare('DELETE FROM book WHERE id = :id');
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     // Récupère tous les livres d'un utilisateur spécifique en fonction de son ID
     public function getBooksByUserId(int $userId): array
     {

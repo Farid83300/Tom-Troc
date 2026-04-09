@@ -41,6 +41,11 @@ try {
             }
             break;
 
+        case 'delete-book':
+            $controller = new BookController();
+            $controller->deleteBook();
+            break;
+
         case 'account':
             $controller = new AccountController();
             $controller->showAccount();

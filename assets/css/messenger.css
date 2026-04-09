@@ -105,6 +105,8 @@
     display: flex;
     flex-direction: column;
     background: var(--background-color);
+    height: calc(100vh - 80px - 61px);
+    overflow: hidden;
 }
 
 .messenger__chat-header {
@@ -145,6 +147,7 @@
     flex-direction: column;
     gap: 16px;
     overflow-y: auto;
+    min-height: 0;
 }
 
 .messenger__bubble {
@@ -185,7 +188,7 @@
 
 .messenger__bubble-content {
     padding: 10px 16px;
-    border-radius: 12px;
+    border-radius: 3px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     line-height: 1.5;
