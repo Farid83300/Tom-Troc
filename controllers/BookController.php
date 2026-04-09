@@ -99,12 +99,10 @@ class BookController
         exit;
     }
 
-    // Supprime un livre appartenant à l'utilisateur connecté
     public function deleteBook(): void
     {
         $id = (int) ($_GET['id'] ?? 0);
 
-        // Vérifie que l'utilisateur est connecté
         if (!isset($_SESSION['user'])) {
             header('Location: index.php?action=login');
             exit;
@@ -114,15 +112,14 @@ class BookController
         $bookManager = new BookManager($db);
         $book = $bookManager->getBookById($id);
 
-        // Vérifie que le livre appartient à l'utilisateur connecté
         if ($book['user_id'] !== $_SESSION['user']['id']) {
             header('Location: index.php?action=home');
             exit;
         }
 
-        $bookManager->deleteBook($id);
+        $bookManager->removeBookFromProfile($id);
 
-        $_SESSION['success'] = 'Le livre a été supprimé.';
+        $_SESSION['success'] = 'Le livre a été retiré de votre profil.';
         header('Location: index.php?action=account');
         exit;
     }

@@ -17,10 +17,17 @@
         <h2>Description</h2>
         <p class="book-description"><?= htmlspecialchars($book['description']) ?></p>
         <h2>Propriétaire</h2>
-        <a href="index.php?action=public-account&id=<?= $book['user_id'] ?>" class="book-owner">
-            <img src="<?= htmlspecialchars($book['profile_picture']) ?>" alt="<?= htmlspecialchars($book['pseudo']) ?>">
-            <span><?= htmlspecialchars($book['pseudo']) ?></span>
-        </a>
-        <a href="index.php?action=messenger&user=<?= $book['user_id'] ?>" class="btn-primary btn-large">Envoyer un message</a>
+        <?php if ($book['pseudo']) : ?>
+            <a href="index.php?action=public-account&id=<?= $book['user_id'] ?>" class="book-owner">
+                <img src="<?= htmlspecialchars($book['profile_picture']) ?>" alt="<?= htmlspecialchars($book['pseudo']) ?>">
+                <span><?= htmlspecialchars($book['pseudo']) ?></span>
+            </a>
+            <a href="index.php?action=messenger&user=<?= $book['user_id'] ?>" class="btn-primary btn-large">Envoyer un message</a>
+        <?php else : ?>
+            <div class="book-owner">
+                <img src="assets/img/avatar/defaut-avatar.png" alt="Aucun propriétaire">
+                <span>Aucun propriétaire</span>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

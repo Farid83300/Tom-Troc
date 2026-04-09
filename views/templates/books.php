@@ -19,9 +19,14 @@
                 </div>
                 <h2><?= htmlspecialchars($book['title']) ?></h2>
                 <p class="book-author"><?= htmlspecialchars($book['author']) ?></p>
-                <p class="book-seller">Vendu par : <?= htmlspecialchars($book['pseudo']) ?></p>
+                <p class="book-seller">
+                    <?php if ($book['pseudo']) : ?>
+                        Vendu par : <?= htmlspecialchars($book['pseudo']) ?>
+                    <?php else : ?>
+                        Aucun propriétaire
+                    <?php endif; ?>
+                </p>
             </a>
         <?php endforeach; ?>
     </div>
 </section>
-

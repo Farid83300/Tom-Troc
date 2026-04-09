@@ -98,10 +98,10 @@ class BookManager
         ]);
     }
 
-    // Supprime un livre en fonction de son ID
-    public function deleteBook(int $id): void
+    // Dissocie un livre du profil de l'utilisateur (le livre reste en BDD)
+    public function removeBookFromProfile(int $id): void
     {
-        $stmt = $this->db->prepare('DELETE FROM book WHERE id = :id');
+        $stmt = $this->db->prepare('UPDATE book SET user_id = NULL WHERE id = :id');
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
