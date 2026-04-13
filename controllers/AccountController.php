@@ -26,6 +26,7 @@ class AccountController
         $createdAt = new DateTime($user['created_at']);
         $now = new DateTime();
         $diff = $createdAt->diff($now);
+        
         // Formatage de l'ancienneté
         if ($diff->y > 0) {
             $memberSince = 'Membre depuis ' . $diff->y . ' an' . ($diff->y > 1 ? 's' : '');
@@ -34,6 +35,7 @@ class AccountController
         } else {
             $memberSince = 'Membre depuis ' . $diff->d . ' jour' . ($diff->d > 1 ? 's' : '');
         }
+
         // Affichage de la vue
         $view = new View('Mon compte');
         $view->render('account', [
@@ -44,18 +46,67 @@ class AccountController
         ]);
     }
 
+    public function updateProfile(): void
+    {
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?action=login');
+            exit;
+        }
+
+        $userId  = $_SESSION['user']['id'];
+        $pseudo  = trim($_POST['pseudo'] ?? '');
+        $email   = trim($_POST['email'] ?? '');
+        $password = $_POST['password'] ?? '';
+
+        if (empty($pseudo) || empty($email)) {
+            $_SESSION['error'] = 'Le pseudo et l\'email sont obligatoires.';
+            header('Location: index.php?action=account');
+            exit;
+        }
+
+        $db = DBManager::getInstance()->getPDO();
+        $userManager = new UserManager($db);
+        $user = $userManager->getUserById($userId);
+
+        if ($email !== $user['email'] && $userManager->emailExists($email)) {
+            $_SESSION['error'] = 'Cet email est déjà utilisé.';
+            header('Location: index.php?action=account');
+            exit;
+        }
+
+        if ($pseudo !== $user['pseudo'] && $userManager->pseudoExists($pseudo)) {
+            $_SESSION['error'] = 'Ce pseudo est déjà pris.';
+            header('Location: index.php?action=account');
+            exit;
+        }
+
+        // Mot de passe : on le met à jour seulement si le champ est rempli
+        $passwordToSave = !empty($password) ? $password : null;
+
+        $userManager->updateUser($userId, $pseudo, $email, $passwordToSave);
+
+        $_SESSION['user']['pseudo'] = $pseudo;
+        $_SESSION['user']['email']  = $email;
+
+        $_SESSION['success'] = 'Profil mis à jour avec succès.';
+        header('Location: index.php?action=account');
+        exit;
+    }
+
     public function updateAvatar(): void
     {
         if (!isset($_SESSION['user'])) {
             header('Location: index.php?action=login');
             exit;
         }
+
         // Vérification de l'upload
         if (!isset($_FILES['avatar']) || $_FILES['avatar']['error'] !== UPLOAD_ERR_OK) {
             $_SESSION['error'] = 'Erreur lors de l\'upload de l\'image.';
             header('Location: index.php?action=account');
             exit;
         }
+        
         // Traitement de l'image
         $file = $_FILES['avatar'];
 

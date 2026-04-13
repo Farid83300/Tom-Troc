@@ -89,9 +89,22 @@ try {
             $controller->logout();
             break;
 
+        case 'update-profile':
+            $controller = new AccountController();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->updateProfile();
+            } else {
+                header('Location: index.php?action=account');
+            }
+            break;
+
         case 'update-avatar':
             $controller = new AccountController();
-            $controller->updateAvatar();
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $controller->updateAvatar();
+            } else {
+                header('Location: index.php?action=account');
+            }
             break;
 
         default:

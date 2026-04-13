@@ -29,7 +29,7 @@
         <!-- PARTIE DROITE : INFORMATIONS -->
         <div class="account-info">
             <h2>Vos informations personnelles</h2>
-            <form action="index.php?action=account" method="post" class="account-form">
+            <form action="index.php?action=update-profile" method="post" class="account-form">
                 <div class="account-form-group">
                     <label for="email">Adresse email</label>
                     <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">

@@ -53,6 +53,7 @@ class UserManager
         $stmt->execute();
         return (int) $stmt->fetchColumn() > 0;
     }
+
     // Met à jour la photo de profil d'un utilisateur
     public function updateProfilePicture(int $userId, string $path): void
     {
@@ -62,6 +63,7 @@ class UserManager
             ':id' => $userId,
         ]);
     }
+    
     // Récupère un utilisateur par son ID
     public function getUserById(int $id): ?array
     {
@@ -70,5 +72,29 @@ class UserManager
         $stmt->execute();
         $user = $stmt->fetch();
         return $user ?: null;
+    }
+
+    public function updateUser(int $userId, string $pseudo, string $email, ?string $newPassword = null): void
+    {
+        if ($newPassword !== null) {
+            $stmt = $this->db->prepare(
+                'UPDATE user SET pseudo = :pseudo, email = :email, password = :password WHERE id = :id'
+            );
+            $stmt->execute([
+                ':pseudo'   => $pseudo,
+                ':email'    => $email,
+                ':password' => password_hash($newPassword, PASSWORD_DEFAULT),
+                ':id'       => $userId,
+            ]);
+        } else {
+            $stmt = $this->db->prepare(
+                'UPDATE user SET pseudo = :pseudo, email = :email WHERE id = :id'
+            );
+            $stmt->execute([
+                ':pseudo' => $pseudo,
+                ':email'  => $email,
+                ':id'     => $userId,
+            ]);
+        }
     }
 }
